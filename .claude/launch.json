@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gunjin-campaign",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["C:/Users/Mini/SynologyDrive/Claude/26년도 건진 캠페인 관련/devserver.py", "8810", "C:/Users/Mini/SynologyDrive/Claude/26년도 건진 캠페인 관련/web"],
+      "port": 8810
+    }
+  ]
+}

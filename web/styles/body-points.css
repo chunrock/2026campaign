@@ -1,0 +1,18 @@
+/* body-info.svg 안의 신체 부위 강조 마커(뇌·심혈관·폐·갑상선·소화기·비뇨기) 동심원(ripple) 효과.
+   body-info.svg는 web/index.html에서 <object>로 로드되므로 자기 문서 컨텍스트를 가지며,
+   이 파일은 그 SVG 안의 <?xml-stylesheet?> 처리 명령으로 참조된다. */
+.body-point-line { stroke: rgba(21,84,155,0.5); stroke-width: 3; fill: none; stroke-linejoin: round; }
+.body-point-dot { fill: rgba(230,0,0,0.8); }
+.body-point-ripple {
+  fill: rgba(230,0,0,0.45);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: body-point-ripple 3s infinite ease-out;
+}
+.body-point-ripple.r1 { animation-delay: 0s; }
+.body-point-ripple.r2 { animation-delay: 1s; }
+.body-point-ripple.r3 { animation-delay: 2s; }
+@keyframes body-point-ripple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(4); opacity: 0; }
+}

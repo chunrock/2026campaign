@@ -1,0 +1,12 @@
+/* "02 추가검사 항목" 섹션의 캔버스 파티클 배경 효과.
+   참고: https://techhub.iodigital.com/articles/particle-background-effect-with-canvas
+   실제 파티클 로직은 web/scripts/particles.js에 있다. */
+.exam-section{
+  position:relative;overflow:hidden;
+  background:#e1f3ff;
+}
+.exam-section .exam-svg-wrap{position:relative;z-index:1}
+.exam-particles{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  display:block;pointer-events:none;
+}

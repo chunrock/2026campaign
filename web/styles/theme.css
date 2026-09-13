@@ -1,0 +1,56 @@
+/* theme.css — 건강검진 제안서 생성기 테마 기준 (디자인 토큰·번들 폰트·리셋) */
+@font-face{
+  font-family:"Proposal Noto Sans KR";
+  src:url("../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight:400;font-style:normal;font-display:block;
+}
+@font-face{
+  font-family:"Proposal Noto Sans KR";
+  src:url("../fonts/NotoSansKR-Bold.ttf") format("truetype");
+  font-weight:700 900;font-style:normal;font-display:block;
+}
+:root{
+  --blue:#2878d0; --deep:#15549b; --cyan:#5cc8e8; --accent:#a5e4f4;
+  --paper:#f7fbfe; --pale:#eaf3fc; --ink:#172534; --muted:#6b7885; --line:#d7e1eb;
+  --bg:#eef5fa;
+  --grad-a:#0e3e78; /* 상단바·강조 카드 그라데이션 시작색(가장 진한 톤) */
+  --surface:#ffffff; --surface-soft:#fbfdff; --glass:#ffffff2e;
+  --shadow-sm:0 4px 14px #15549b12; --shadow-md:0 10px 28px #15549b18; --shadow-lg:0 24px 70px #15549b26;
+  --radius-sm:10px; --radius-md:14px; --radius-lg:18px;
+  --focus:0 0 0 3px #2878d033;
+  --appw:1280px; --apph:720px;
+  --sbw:90px; --tbh:70px;
+}
+
+/* ── 테마 팔레트 (설정 > 테마 색상, html[data-theme]로 전환) ── */
+:root[data-theme="green"]{
+  --blue:#7dbb55; --deep:#4f8133; --cyan:#b8e08d; --accent:#e3f6c9;
+  --paper:#fbfef8; --pale:#f1f9e9; --line:#e2edd6;
+  --bg:#f6fbf1;
+  --grad-a:#3f6e27;
+}
+:root[data-theme="gray"]{
+  --blue:#4b5563; --deep:#1f2937; --cyan:#9ca3af; --accent:#e5e7eb;
+  --paper:#ffffff; --pale:#f3f4f6; --line:#cbd5e1;
+  --bg:#e5e7eb;
+  --grad-a:#111827;
+}
+:root[data-theme="pink"]{
+  --blue:#dc7aa9; --deep:#b05280; --cyan:#f0b3cf; --accent:#f9ddea;
+  --paper:#fffafd; --pale:#fcf0f6; --line:#efdce5;
+  --bg:#fbf2f7;
+  --grad-a:#914368;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  width:100%;min-width:720px;min-height:100vh;
+  background:
+    radial-gradient(circle at 18% 0%, #ffffffaa 0, transparent 32%),
+    linear-gradient(180deg,var(--paper),var(--bg) 34%,var(--bg));
+  color:var(--ink);
+  font-family:"Proposal Noto Sans KR","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  line-height:1.4;-webkit-font-smoothing:antialiased;
+}
+button,input,select{font-family:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:0;box-shadow:var(--focus);border-color:var(--blue)!important}

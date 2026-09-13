@@ -1,0 +1,6 @@
+Thumbs.db
+.DS_Store
+*~lock~
+web/26년도 건진 캠페인.zip
+scripts/__pycache__/
+**/__pycache__/
