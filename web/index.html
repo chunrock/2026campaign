@@ -4,16 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026년도 건진 캠페인</title>
-<!-- 포스터 SVG가 <?xml-stylesheet?>로 뒤늦게 요청하기 전에 미리 받아두는 것.
-     포스터 텍스트 상당수가 커닝 보정용 <tspan x="...">로 절대좌표 배치돼 있어서,
-     폰트가 늦게 도착해 대체 서체로 먼저 그려지면(간격 계산이 그 서체 기준으로
-     굳어) 실제 폰트로 바뀐 뒤에도 글자 사이 간격이 어긋난 채 남는 경우가 있다
-     (특히 삼성 인터넷에서 관찰됨). poster-fonts.css도 font-display:block으로
-     맞춰, 폰트가 준비되기 전에는 아예 텍스트를 안 그리게(늦게라도 정확한 위치로) 했다. -->
+<!-- 표지 타이틀·날짜에 쓰는 Jalnan2만 먼저 받아둔다(커닝 보정용 tspan 위치가
+     대체 서체 기준으로 굳는 걸 막기 위해 — 2026-09-14 삼성 인터넷 제보 참고).
+     Paperlogy 3종까지 전부 preload+block으로 묶었더니 최초 로딩이 느려진다는
+     피드백을 받아, Jalnan2 하나만 미리 받고 나머지는 poster-fonts.css의
+     font-display:swap대로 화면이 뜬 뒤 각 포스터 SVG가 필요할 때 받게 둔다
+     (Paperlogy로 그려지는 글자는 이 경합이 재발할 수 있음을 감수한 절충). -->
 <link rel="preload" href="fonts/Jalnan2/Jalnan2TTF.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="fonts/Paperlogy/Paperlogy-4Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="fonts/Paperlogy/Paperlogy-6SemiBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="fonts/Paperlogy/Paperlogy-7Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="styles/theme.css">
 <link rel="stylesheet" href="styles/app.css">
 </head>

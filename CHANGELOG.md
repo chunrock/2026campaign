@@ -115,3 +115,7 @@
   - 검증: 로컬 미리보기에서 4개 폰트 파일이 전부 200 OK로 preload 요청됨을 네트워크 탭으로 확인, 화면 렌더링·콘솔 에러 없음을 확인. **다만 이 환경엔 삼성 인터넷이 없어 실제 기기에서 문제가 사라졌는지는 직접 검증하지 못함 — 사용자가 실제 폰에서 재확인 필요.**
   - `docs/`(GitHub Pages)·`M:\web\apps\health-campaign-2026\`(시놀로지)에 `index.html`·`styles/poster-fonts.css` 재배포, GitHub push.
 - 2026-09-14: 사용자가 전화 버튼을 빨간 원으로 표시하며 크기를 키워달라고 요청함(처음엔 "200배"라고 썼다가 바로 "2배"로 정정). `web/styles/app.css`의 `.call-fab` 기본 크기를 56px/26px → 112px/52px로 키움(터치기기 전용이 아니라 기본값 자체를 바꿔 데스크톱·모바일 모두 적용). 검증: 스크린샷으로 확대 확인, 콘솔 에러 없음. `docs/`·NAS 재배포.
+- 2026-09-14: 사용자가 "폰트 로딩을 Jalnan2TTF 폰트만 먼저 읽고 나머지는 화면 후 읽도록 수정, 현재 폰트를 먼저 읽게 하니까 최초 로딩이 너무 길어지는 문제가 있어"를 요청함 — 바로 앞서 적용한 "폰트 4개 전부 preload+font-display:block" 조치가 최초 로딩을 눈에 띄게 늦춘다는 피드백.
+  - `web/index.html`에서 Paperlogy 3종(4Regular/6SemiBold/7Bold)의 `<link rel="preload">`를 제거하고 Jalnan2TTF.ttf 하나만 남김(표지 타이틀·날짜에 쓰여 제보의 핵심 증상이었던 폰트).
+  - `web/styles/poster-fonts.css`에서 Paperlogy 9종·Proposal Noto Sans KR의 `font-display`를 `block`→`swap`으로 되돌림(Jalnan2/Jalnan 2/JalnanGothic/Jalnan Gothic 4개만 `block` 유지). Paperlogy로 그려지는 텍스트(가격 숫자, "MVG" 등)는 다시 대체 서체 경합 가능성이 남는 절충이라는 점을 문서화함.
+  - 검증: 로컬 미리보기 재로딩 후 화면 정상 렌더링, 콘솔 에러 없음 확인. `docs/`(GitHub Pages)·NAS 재배포.
