@@ -71,10 +71,11 @@ body{background:#e1f3ff}
   /* min-width를 없애 레이아웃 뷰포트가 실제 화면 폭(예: 375px)을 그대로 쓰게
      한다 — 그래야 .content가 그 폭에 맞춰 줄어들고, 로딩 직후 전체 포스터가
      확대·잘림 없이 화면 안에 한 번에 들어온다(min-width가 남아있으면 브라우저가
-     720px 레이아웃을 화면에 욱여넣어 확대된 것처럼 보이고 가로 스크롤이 생긴다). */
+     720px 레이아웃을 화면에 욱여넣어 확대된 것처럼 보이고 가로 스크롤이 생긴다).
+     전화 버튼은 이 min-width 수정 전에는 레이아웃이 720px로 눌려 있어 2배로
+     키워도 화면상으로는 작아 보였다 — 이제 실제 폭(375px 등)을 그대로 쓰므로
+     .call-fab 기본 크기(56px/26px)만으로 충분해 별도 확대가 필요 없다. */
   body{min-width:0}
-  .call-fab{width:112px;height:112px}
-  .call-fab svg{width:52px;height:52px}
 }
 
 @media print{
