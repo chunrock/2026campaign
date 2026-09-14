@@ -63,11 +63,16 @@ body{background:#e1f3ff}
 .call-fab svg{width:26px;height:26px}
 .call-fab:hover{filter:brightness(1.1)}
 
-/* 모바일(터치스크린) 기기에서는 버튼·아이콘을 2배로 키워 터치 타깃을 키운다.
+/* 모바일(터치스크린) 기기 전용 보정.
    body{min-width:720px}(theme.css) 때문에 좁은 화면에서도 레이아웃 뷰포트가
    720px로 넓어져 버려 max-width 기준 미디어쿼리는 걸리지 않는다 — 대신 실제
    터치 입력 기기 여부(hover:none, pointer:coarse)로 판별한다. */
 @media (hover:none) and (pointer:coarse){
+  /* min-width를 없애 레이아웃 뷰포트가 실제 화면 폭(예: 375px)을 그대로 쓰게
+     한다 — 그래야 .content가 그 폭에 맞춰 줄어들고, 로딩 직후 전체 포스터가
+     확대·잘림 없이 화면 안에 한 번에 들어온다(min-width가 남아있으면 브라우저가
+     720px 레이아웃을 화면에 욱여넣어 확대된 것처럼 보이고 가로 스크롤이 생긴다). */
+  body{min-width:0}
   .call-fab{width:112px;height:112px}
   .call-fab svg{width:52px;height:52px}
 }
