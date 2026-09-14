@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026년도 건진 캠페인</title>
-<!-- 표지 타이틀·날짜에 쓰는 Jalnan2만 먼저 받아둔다(커닝 보정용 tspan 위치가
-     대체 서체 기준으로 굳는 걸 막기 위해 — 2026-09-14 삼성 인터넷 제보 참고).
-     Paperlogy 3종까지 전부 preload+block으로 묶었더니 최초 로딩이 느려진다는
-     피드백을 받아, Jalnan2 하나만 미리 받고 나머지는 poster-fonts.css의
-     font-display:swap대로 화면이 뜬 뒤 각 포스터 SVG가 필요할 때 받게 둔다
-     (Paperlogy로 그려지는 글자는 이 경합이 재발할 수 있음을 감수한 절충). -->
+<!-- 표지 타이틀·날짜에 쓰는 Jalnan2는 최우선으로 받아둔다(커닝 보정용 tspan
+     위치가 대체 서체 기준으로 굳는 걸 막기 위해 — 2026-09-14 삼성 인터넷 제보
+     참고). Paperlogy 3종도 같은 문제가 있지만(가격 숫자·"MVG" 등에 쓰임) 이걸
+     Jalnan2와 같은 우선순위로 preload하면 최초 로딩이 느려진다는 피드백을 받아
+     fetchpriority="low"로 낮춰뒀다 — 브라우저가 Jalnan2·표지 SVG부터 받은 뒤
+     남는 대역폭으로 백그라운드에서 Paperlogy를 받으므로 첫 화면은 안 늦추면서도,
+     뒤에 이어지는 프로그램/추가검사항목/VIP 페이지가 순차 로딩되는 동안(수 초)
+     충분히 끝나 마지막 페이지가 뜨기 전에는 준비돼 있다. -->
 <link rel="preload" href="fonts/Jalnan2/Jalnan2TTF.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/Paperlogy/Paperlogy-4Regular.ttf" as="font" type="font/ttf" crossorigin fetchpriority="low">
+<link rel="preload" href="fonts/Paperlogy/Paperlogy-6SemiBold.ttf" as="font" type="font/ttf" crossorigin fetchpriority="low">
+<link rel="preload" href="fonts/Paperlogy/Paperlogy-7Bold.ttf" as="font" type="font/ttf" crossorigin fetchpriority="low">
 <link rel="stylesheet" href="styles/theme.css">
 <link rel="stylesheet" href="styles/app.css">
 </head>

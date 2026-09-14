@@ -119,3 +119,7 @@
   - `web/index.html`에서 Paperlogy 3종(4Regular/6SemiBold/7Bold)의 `<link rel="preload">`를 제거하고 Jalnan2TTF.ttf 하나만 남김(표지 타이틀·날짜에 쓰여 제보의 핵심 증상이었던 폰트).
   - `web/styles/poster-fonts.css`에서 Paperlogy 9종·Proposal Noto Sans KR의 `font-display`를 `block`→`swap`으로 되돌림(Jalnan2/Jalnan 2/JalnanGothic/Jalnan Gothic 4개만 `block` 유지). Paperlogy로 그려지는 텍스트(가격 숫자, "MVG" 등)는 다시 대체 서체 경합 가능성이 남는 절충이라는 점을 문서화함.
   - 검증: 로컬 미리보기 재로딩 후 화면 정상 렌더링, 콘솔 에러 없음 확인. `docs/`(GitHub Pages)·NAS 재배포.
+- 2026-09-14: 사용자가 "paperlogy폰트를 최종 페이지 로딩 이전으로 순서를 조정해"를 요청함 — 직전에 Paperlogy preload를 아예 뺐더니, 이제 Paperlogy 폰트 요청이 각 포스터 SVG의 `@font-face` 지연 로딩에만 의존해 우선순위가 낮아지고 언제 끝날지 보장이 없어진 상태였음(표지도 Paperlogy를 쓰지만 cover-page.svg 자체 로딩과 경합).
+  - `web/index.html`에 Paperlogy 3종(4Regular/6SemiBold/7Bold) preload를 다시 추가하되, `fetchpriority="low"` 속성을 붙임 — Jalnan2·표지 SVG 등 최초 화면에 필요한 리소스보다 낮은 우선순위로 백그라운드에서 받아가게 해서, 초기 로딩 속도는 그대로 두면서도(직전 피드백 반영) 이후 프로그램→추가검사항목→VIP로 이어지는 순차 로딩(수 초) 동안 충분히 받아져 마지막 페이지가 뜨기 전에는 준비되게 함.
+  - `font-display`는 이전 턴에 되돌린 대로 Paperlogy는 `swap` 유지(Jalnan2 4개 별칭만 `block`) — 이번 변경은 로딩 "순서/우선순위"만 조정한 것.
+  - 검증: `link.fetchPriority`가 Jalnan2는 `"auto"`, Paperlogy 3종은 `"low"`로 정확히 반영됨을 JS로 확인, 화면 정상 렌더링·콘솔 에러 없음 확인. `docs/`(GitHub Pages)·NAS 재배포.
