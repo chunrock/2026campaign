@@ -55,12 +55,12 @@ body{background:#e1f3ff}
    않도록 우하단 구석에 작게 고정한다. */
 .call-fab{
   position:fixed;right:20px;bottom:20px;z-index:20;
-  width:56px;height:56px;border-radius:50%;
+  width:112px;height:112px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,#0e3e78,var(--blue));
   text-decoration:none;box-shadow:var(--shadow-lg);
 }
-.call-fab svg{width:26px;height:26px}
+.call-fab svg{width:52px;height:52px}
 .call-fab:hover{filter:brightness(1.1)}
 
 /* 모바일(터치스크린) 기기 전용 보정.
